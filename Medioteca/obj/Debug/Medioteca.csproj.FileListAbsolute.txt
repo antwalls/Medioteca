@@ -69,5 +69,3 @@ C:\Trabajo\Medioteca\Medioteca\obj\Debug\Medioteca.dll
 C:\Trabajo\Medioteca\Medioteca\obj\Debug\Medioteca.pdb
 C:\Trabajo\Medioteca\Medioteca\obj\Debug\Medioteca.Migrations.Initial.resources
 C:\Trabajo\Medioteca\Medioteca\obj\Debug\Medioteca.csproj.GenerateResource.Cache
-C:\Trabajo\Medioteca\Medioteca\obj\Debug\Medioteca.Migrations.Initial1.resources
-C:\Trabajo\Medioteca\Medioteca\obj\Debug\Medioteca.Migrations.Initial2.resources

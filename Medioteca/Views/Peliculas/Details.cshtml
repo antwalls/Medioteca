@@ -1,0 +1,58 @@
+﻿@model Medioteca.Models.Pelicula
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pelicula</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Director)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Director)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reparto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reparto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sinopsis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sinopsis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duracion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duracion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PeliculaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

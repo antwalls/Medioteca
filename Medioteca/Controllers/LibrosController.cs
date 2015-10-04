@@ -12,7 +12,7 @@ namespace Medioteca.Controllers
 {
     public class LibrosController : Controller
     {
-        private LibroContext db = new LibroContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Libros
         public ActionResult Index()

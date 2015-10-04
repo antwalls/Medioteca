@@ -29,5 +29,12 @@ namespace Medioteca.Models
         {
             return new ApplicationDbContext();
         }
+
+
+        public System.Data.Entity.DbSet<Medioteca.Models.Libro> Libroes { get; set; }
+
+        public System.Data.Entity.DbSet<Medioteca.Models.Pelicula> Peliculas { get; set; }
+
+        public System.Data.Entity.DbSet<Medioteca.Models.Cancion> Cancions { get; set; }
     }
 }
