@@ -1,7 +1,16 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Busqueda</h2>
+
+@using (Html.BeginForm("Results", "Search", FormMethod.Get))
+{
+    <p>
+        Title: @Html.TextBox("SearchString") 
+        <input type="submit" value="Filtrar" />
+    </p>
+}
+ 
+
 

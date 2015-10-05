@@ -35,6 +35,21 @@ namespace Medioteca.Controllers
             return View(cancion);
         }
 
+        // GET: Canciones/Details/5
+        public ActionResult Item(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Cancion cancion = db.Cancions.Find(id);
+            if (cancion == null)
+            {
+                return HttpNotFound();
+            }
+            return View(cancion);
+        }
+
         // GET: Canciones/Create
         [Authorize]
         public ActionResult Create()

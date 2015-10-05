@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "";
+}
+@model Medioteca.Models.Cancion
+@{
+    ViewBag.Title = "Item";
+}
+
+<tr>
+    <th>
+        @Html.DisplayFor(model => model.Titulo)
+    </th>
+    <th>
+        @Html.DisplayFor(model => model.Artista)
+    </th>
+    <th>
+        @Html.DisplayFor(model => model.Album)
+    </th>
+    <th>
+        @Html.DisplayFor(model => model.Anio)
+    </th>
+    <th>
+        @Html.DisplayFor(model => model.Estilo)
+    </th>
+    <th>
+        @Html.DisplayFor(model => model.Duracion)
+    </th>
+    <th></th>
+</tr>
+
+

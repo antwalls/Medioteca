@@ -35,6 +35,24 @@ namespace Medioteca.Controllers
             return View(libro);
         }
 
+
+        // GET: Libros/item/5
+        public ActionResult Item(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Libro libro = db.Libroes.Find(id);
+            if (libro == null)
+            {
+                return HttpNotFound();
+            }
+            return View(libro);
+        }
+
+
+
         // GET: Libros/Create
         public ActionResult Create()
         {

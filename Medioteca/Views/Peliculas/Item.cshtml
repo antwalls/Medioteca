@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "";
+}
+@model Medioteca.Models.Pelicula
+@{
+    ViewBag.Title = "Item";
+}
+
+
+<tr>
+    
+    <th>
+        @Html.DisplayFor(model => model.Director)
+    </th>
+    <th>
+        @Html.DisplayFor(model => model.Titulo)
+    </th>
+    <th>
+        @Html.DisplayFor(model => model.Duracion)
+    </th>
+    <th>
+        @Html.DisplayFor(model => model.Reparto)
+    </th>
+    <th>
+        @Html.DisplayFor(model => model.Sinopsis)
+    </th>
+    <th></th>
+</tr>

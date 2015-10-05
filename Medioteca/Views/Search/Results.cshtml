@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Resultados";
+
+}
+<h2>Results</h2>
+
+@using (Html.BeginForm("Results", "Search", FormMethod.Get))
+{
+    <p>
+        Title: @Html.TextBox("SearchString")
+        <input type="submit" value="Filtrar" />
+    </p>
+}
+
+
+
+<table class="table">
+
+    @*<tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Autor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F_publi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ISBM)
+        </th>
+        <th>
+
+        </th>
+    </tr>*@
+    @foreach (var item in ViewBag.books)
+    {
+         Html.RenderAction("Item", "Libros", new { id = item.LibroId });      
+    }
+
+
+    @foreach (var item in ViewBag.movies)
+    {
+        Html.RenderAction("Item", "Peliculas", new { id = item.PeliculaID });
+    }
+
+    @foreach (var item in ViewBag.songs)
+    {
+        Html.RenderAction("Item", "Canciones", new { id = item.CancionId });
+    }
+
+</table>

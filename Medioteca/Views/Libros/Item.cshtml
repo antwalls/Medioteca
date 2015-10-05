@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = "";
+}
+@model Medioteca.Models.Libro
+@{
+    ViewBag.Title = "Item";
+}
+
+<tr>
+    <th>
+        @Html.DisplayFor(model => model.ISBM)
+    </th>
+    <th>
+        @Html.DisplayFor(model => model.Autor)
+    </th>
+    <th>
+        @Html.DisplayFor(model => model.Titulo)
+    </th>
+    <th>
+        @Html.DisplayFor(model => model.F_publi)
+    </th>
+    <th>
+        @Html.DisplayFor(model => model.N_edicion)
+    </th>
+    <th>
+        @Html.DisplayFor(model => model.N_paginas)
+    </th>
+    <th>
+        @Html.DisplayFor(model => model.Argumento)
+    </th>
+    <th></th>
+</tr>
+

@@ -35,6 +35,23 @@ namespace Medioteca.Controllers
             return View(pelicula);
         }
 
+        // GET: Peliculas/Details/5
+        public ActionResult Item(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Pelicula pelicula = db.Peliculas.Find(id);
+            if (pelicula == null)
+            {
+                return HttpNotFound();
+            }
+            return View(pelicula);
+        }
+
+
+
         // GET: Peliculas/Create
         public ActionResult Create()
         {
