@@ -1,24 +1,56 @@
 ﻿body {
-  padding-top: 50px;
-  padding-bottom: 20px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #FAFAFA;
 }
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
-  padding-left: 15px;
-  padding-right: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-shadow: rgba(0, 148, 255,0.6),10px 10px inset;
+    background-color: white;
 }
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
 .dl-horizontal dt {
-  white-space: normal;
+    white-space: normal;
 }
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
-  max-width: 280px;
+    max-width: 280px;
 }
-.nav-delegate {
-  background-color: #ff2200;
+.blue-stuff
+{
+    background-color :cornflowerblue;
+}
+.little_spacing
+{
+    padding-top: 1%;
+}
+.shadow{
+    box-shadow: rgb(128, 128, 128) 0px 0px 2px 0px inset;
+}
+.link_dark
+{
+    color:black;
+}
+ .navbar-inverse .navbar-brand ,
+ .navbar-inverse .navbar-nav > li > a
+{
+    color:black;
+}
+
+.black-border
+{
+    border-color : black;
+}
+.lower_border
+{
+    border-bottom: 1px solid rgb(214, 222, 230)
 }
