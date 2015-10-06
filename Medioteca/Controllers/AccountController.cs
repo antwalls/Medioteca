@@ -62,7 +62,9 @@ namespace Medioteca.Controllers
             var users = context.Users.ToList();
             return View(users);
         }
-
+        //
+        //GET /Account/roles
+        [Authorize(Roles = "Administrador")]
         public ActionResult roles(string id)
         {
             if (!String.IsNullOrEmpty(id))
@@ -76,6 +78,41 @@ namespace Medioteca.Controllers
             }
             
         }
+
+        //
+        // /Account/Remove
+        [Authorize(Roles = "Administrador")]
+        public ActionResult Remove(string user_id)
+        {
+            if (!String.IsNullOrEmpty(user_id))
+            {
+                ApplicationUser user = context.Users.Find(user_id);
+                if (user != null)
+                {
+                    return View(user);
+                }
+            }
+            return RedirectToAction("List");
+        }
+
+        //
+        //POST /Account/Remove
+        [Authorize(Roles = "Administrador")]
+        [HttpPost]
+        public async Task<ActionResult> Remove(string user_id, string delete)
+        {
+            if (!String.IsNullOrEmpty(user_id) && delete == "True")
+            {
+               
+                ApplicationUser user = UserManager.FindById(user_id);
+                if (user != null)
+                {
+                    await UserManager.DeleteAsync(user);
+                }
+            }
+            return RedirectToAction("List");
+        }
+
 
 
         //

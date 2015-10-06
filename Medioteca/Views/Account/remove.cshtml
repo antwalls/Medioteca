@@ -1,0 +1,38 @@
+﻿@model Medioteca.Models.ApplicationUser
+@{
+    ViewBag.Title = "remove";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<text class="danger"> ¿Estas seguro de que quieres eliminar la cuenta? </text>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+@{
+
+
+    using (Html.BeginForm("Remove", "Account", FormMethod.Post))
+    {
+
+            @Html.Hidden("user_id", Model.Id);
+            @Html.Hidden("delete", "False", new { @class = "delete" });
+            <input type="submit" class="cancelar btn btn-danger" value="Cancelar" />
+
+    }
+    using (Html.BeginForm("Remove", "Account", FormMethod.Post))
+    {
+
+            @Html.Hidden("user_id", Model.Id);
+            @Html.Hidden("delete", "True", new { @class = "delete" });
+            <input type="submit" class="borrar btn btn-default" value="Borrar Usuario" />
+        
+    }
+}
+    </div>
+</div>
+
+<script>
+    //$
+    //$(".delete").val("True");
+</script>
+

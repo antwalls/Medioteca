@@ -19,6 +19,9 @@
         <th>
             @Html.DisplayNameFor(Model => Model.Id);
         </th>
+        <th>
+            Remove;
+        </th>
     </tr>
 
     @{foreach (var item in Model)
@@ -39,6 +42,10 @@
 
         <td>
             @Html.DisplayFor(ModelItem => item.Id);
+        </td>
+
+        <td>
+            @Html.ActionLink("<button> Borrar Cuenta <button>", "Remove", "Account",new { user_id = item.Id }, null);
         </td>
 
     </tr>
