@@ -45,8 +45,8 @@
         </td>
 
         <td>
-            @Html.ActionLink("<button> Borrar Cuenta <button>", "Remove", "Account",new { user_id = item.Id }, null);
-        </td>
+            <button>@Html.ActionLink("Borrar Cuenta", "Remove", "Account",new { user_id = item.Id }, null)</button>
+</td>
 
     </tr>
     }
