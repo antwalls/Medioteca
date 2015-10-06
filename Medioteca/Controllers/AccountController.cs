@@ -55,6 +55,30 @@ namespace Medioteca.Controllers
         }
 
         //
+        // GET: /Account/list
+        [Authorize(Roles = "Administrador")]
+        public ActionResult List(string returnUrl)
+        {
+            var users = context.Users.ToList();
+            return View(users);
+        }
+
+        public ActionResult roles(string id)
+        {
+            if (!String.IsNullOrEmpty(id))
+            {
+                var roles = UserManager.GetRoles(id).ToArray();
+                return View(roles);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            
+        }
+
+
+        //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<string>
+@{
+    ViewBag.Title = "roles";
+    Layout = "";
+}
+
+
+@{foreach (var role in Model)
+
+    {
+        @Html.DisplayFor(modelitem => role)
+    }
+}
+
+

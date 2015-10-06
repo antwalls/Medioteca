@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Medioteca.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(Model => Model.UserName);
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.Email);
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.Roles);
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.Id);
+        </th>
+    </tr>
+
+    @{foreach (var item in Model)
+        {
+
+    <tr>
+        <td>
+            @Html.DisplayFor(ModelItem => item.UserName);
+        </td>
+
+        <td>
+            @Html.DisplayFor(ModelItem => item.Email);
+        </td>
+
+        <td>
+            @{Html.RenderAction("roles", "Account", new { id = item.Id });}
+        </td>
+
+        <td>
+            @Html.DisplayFor(ModelItem => item.Id);
+        </td>
+
+    </tr>
+    }
+    }
+
+</table>
