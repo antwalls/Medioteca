@@ -1,0 +1,78 @@
+﻿@model Medioteca.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Registrarse";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("Create", "Account",null ,FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <br>
+   
+        <hr />
+        <h4>Cree una cuenta nueva.</h4>
+        <br>
+    <div class="col-lg-6">
+       
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Selecciona tipo de usuario", new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.DropDownList("Name")
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Registrarse" />
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        @Html.Label("Elige tu foto de perfil", new { @class = "col-md-2 control-label" })
+        <br>
+        <div class="img-circle avatar">
+            <img class="img-circle half-size" src="~/Content/Images/default-avatar.png">
+        </div>
+        
+        <input type="file" class="image-uploader invisible" id="Avatar" name="upload" />
+
+
+    </div>
+
+    <div class="row">
+
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+
+        $(".avatar").on("click", function () {
+            $(".image-uploader").trigger("click");
+        });
+   
+</script>
+}
+
+

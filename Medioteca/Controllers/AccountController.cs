@@ -65,7 +65,7 @@ namespace Medioteca.Controllers
         //
         //GET /Account/roles
         [Authorize(Roles = "Administrador")]
-        public ActionResult roles(string id)
+        public ActionResult Roles(string id)
         {
             if (!String.IsNullOrEmpty(id))
             {
@@ -200,7 +200,7 @@ namespace Medioteca.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
-        public ActionResult Register()
+        public ActionResult Create()
         {
             ViewBag.Name = new SelectList(context.Roles.ToList(), "Name", "Name");
             return View();
@@ -211,20 +211,39 @@ namespace Medioteca.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Create(RegisterViewModel model, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
+                
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
+                if (upload.ContentLength > 0)
+                {
+                    var avatar = new File
+                    {
+                        file_Name = System.IO.Path.GetFileName(upload.FileName),
+                        file_Path = upload.FileName,
+                        file_kind = FileType.Avatar,
+                        contentType = upload.ContentType
+                    };
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        avatar.content = reader.ReadBytes(upload.ContentLength);
+                    }
+                    var file = context.Files.Add(avatar);
+                    context.User_files.Add(new UserFile { file_ID = file.file_ID, User_Id = user.Id });
+                }
+
                 if (result.Succeeded)
                 {
 
-                    //Assign Role to user Here 
+                    //Asignamos roles al usuario
+                    if (String.IsNullOrEmpty(model.Name))
+                    model.Name = "Papa frita";
                     await this.UserManager.AddToRoleAsync(user.Id, model.Name);
 
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);

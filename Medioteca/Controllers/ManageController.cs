@@ -7,6 +7,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Medioteca.Models;
+using System.Drawing;
+
 
 namespace Medioteca.Controllers
 {
@@ -15,9 +17,11 @@ namespace Medioteca.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext context;
 
         public ManageController()
         {
+            context = new ApplicationDbContext();
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -63,14 +67,35 @@ namespace Medioteca.Controllers
                 : message == ManageMessageId.RemovePhoneSuccess ? "Se ha quitado su número de teléfono."
                 : "";
 
-            var userId = User.Identity.GetUserId();
+            var userId          = User.Identity.GetUserId();
+            var avatarId_query  = (context.User_files.Where(s => s.User_Id.Equals(userId))).ToList();
+            var avatarId        = "";
+            var avatar_user = new File();
+            if (avatarId_query.Count > 0)
+            {
+                avatarId    =   avatarId.First().ToString(); 
+                avatar_user =   context.Files.Find(avatarId);
+            }
+            else // convertimos la imagen en binario
+            {
+                Image img = Image.FromFile(@"C:\Trabajo\Medioteca\Medioteca\Content\Images\default-avatar.png");
+                byte[] arr;
+                using (System.IO.MemoryStream ms = new System.IO.MemoryStream())
+                {
+                    img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    arr = ms.ToArray();
+                }
+                avatar_user.content = arr;
+                
+            } 
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
+                Avatar = avatar_user
             };
             return View(model);
         }

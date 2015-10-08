@@ -7,10 +7,11 @@
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/fontawesome")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse blue-stuff navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -22,12 +23,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Busqueda", "Index", "Search")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Roles", "Index", "Role")</li>
-                    <li>@Html.ActionLink("Users", "List", "Account")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    <li><i class="fa fa-home icon-left"></i>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li><i class="fa fa-search icon-left""></i>@Html.ActionLink("Busqueda", "Index", "Search")</li>
+                    <li><i class="fa fa-info-circle icon-left""></i>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                    <li><i class="fa fa-envelope icon-left""></i>@Html.ActionLink("Roles", "Index", "Role")</li>
+                    <li><i class="fa fa-user icon-left""></i>@Html.ActionLink("Users", "List", "Account")</li>
+                    <li><i class="fa fa-mail-forward icon-left""></i>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -35,7 +36,7 @@
     </div>
 
 
-    <div class="container body-content">
+    <div class="container body-content little_spacing shadow">
         @RenderBody()
         <hr />
         <footer>

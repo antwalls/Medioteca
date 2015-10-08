@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Medioteca.Models.File>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.file_Path)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.file_kind)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.file_Path)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.file_kind)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.file_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.file_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.file_ID })
+        </td>
+    </tr>
+}
+
+</table>

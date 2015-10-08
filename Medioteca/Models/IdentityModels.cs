@@ -31,10 +31,15 @@ namespace Medioteca.Models
         }
 
 
-        public System.Data.Entity.DbSet<Medioteca.Models.Libro> Libroes { get; set; }
+        public System.Data.Entity.DbSet<Medioteca.Models.Libro>     Libroes { get; set; }
 
-        public System.Data.Entity.DbSet<Medioteca.Models.Pelicula> Peliculas { get; set; }
+        public System.Data.Entity.DbSet<Medioteca.Models.Pelicula>  Peliculas { get; set; }
 
-        public System.Data.Entity.DbSet<Medioteca.Models.Cancion> Cancions { get; set; }
+        public System.Data.Entity.DbSet<Medioteca.Models.Cancion>   Cancions { get; set; }
+
+        public System.Data.Entity.DbSet<Medioteca.Models.File>      Files { get; set; }
+
+        public System.Data.Entity.DbSet<Medioteca.Models.UserFile>  User_files { get; set; }
+
     }
 }
