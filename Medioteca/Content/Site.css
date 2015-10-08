@@ -10,6 +10,7 @@
     padding-right: 15px;
     box-shadow: rgba(0, 148, 255,0.6),10px 10px inset;
     background-color: white;
+    min-height: 1200px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -40,10 +41,21 @@ textarea {
 {
     color:black;
 }
+
+ .navbar-inverse .navbar-nav > li > a:hover
+ {
+    color: black;
+   
+ }
+ .navbar-inverse .navbar-nav > li:hover
+ {
+      background-color: azure;   
+ }
+ 
  .navbar-inverse .navbar-brand ,
  .navbar-inverse .navbar-nav > li > a
 {
-    color:black;
+    color:white;
 }
 
 .black-border
@@ -53,4 +65,24 @@ textarea {
 .lower_border
 {
     border-bottom: 1px solid rgb(214, 222, 230)
+}
+.icon-left 
+{
+    float:left;
+    padding-top : 15px;
+    padding-bottom : 15px;
+    padding-left: 5px;
+}
+i.icon-left + a
+{
+    margin-left: 5px;
+    margin-right: 10px;
+}
+.avatar
+{
+    width:100%
+}
+.half-size
+{
+    width: 50%;
 }
