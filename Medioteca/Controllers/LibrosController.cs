@@ -52,13 +52,14 @@ namespace Medioteca.Controllers
         }
 
 
-
+        [Authorize(Roles ="Administrador")]
         // GET: Libros/Create
         public ActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "Administrador")]
         // POST: Libros/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -76,6 +77,7 @@ namespace Medioteca.Controllers
             return View(libro);
         }
 
+        [Authorize(Roles = "Administrador")]
         // GET: Libros/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -91,6 +93,7 @@ namespace Medioteca.Controllers
             return View(libro);
         }
 
+        [Authorize(Roles = "Administrador")]
         // POST: Libros/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -107,6 +110,7 @@ namespace Medioteca.Controllers
             return View(libro);
         }
 
+        [Authorize(Roles = "Administrador")]
         // GET: Libros/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -121,7 +125,7 @@ namespace Medioteca.Controllers
             }
             return View(libro);
         }
-
+        [Authorize(Roles = "Administrador")]
         // POST: Libros/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
